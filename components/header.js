@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -57,7 +58,11 @@ function Header() {
         />
         <img style={{ width: "50px" }} src={cartLogo.src} />
         <MainLogin>
-          <Typography>login</Typography>
+          <Link href="/login">
+            <Typography component="span" style={{ cursor: "pointer" }}>
+              login
+            </Typography>
+          </Link>
           <Typography>SignUp</Typography>
           <Typography>Sell on Mart</Typography>
           <Typography>Help & Suppport</Typography>
