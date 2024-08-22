@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         navblue: "#0E1D55",
+        textColor: "#CCA471",
       },
     },
   },
