@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Container from './components/container'
+// "use-client"
+
 import HomeBanner from './components/homeBanner'
 
 export default function Home() {
