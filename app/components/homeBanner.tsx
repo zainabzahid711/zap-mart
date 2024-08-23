@@ -66,7 +66,11 @@ const HomeBanner = () => {
               className={`transform transition-transform duration-500 ease-in-out   ${
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
-              style={{ display: index === currentSlide ? 'block' : 'none' }}
+              style={{
+                display: index === currentSlide ? 'block' : 'none',
+                transition: 'all .5s',
+                transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+              }}
             >
               <div className="bg-gradient-to-r from-black via-[#384269] to-black mb-8">
                 <div className="mx-auto p-24 flex flex-col gap-2 md:flex-row items-center justify-evenly">
