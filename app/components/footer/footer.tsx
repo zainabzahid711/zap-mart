@@ -69,7 +69,7 @@ const Footer = () => {
             <p className="mb-2">
               At our electronic store, we are dedicated to providing the latest
               and greatest devices and accessories to our customers. With a wide
-              selection of phones, TV's, laptops, watches, and accessories.
+              selection of phones, TVs, laptops, watches, and accessories.
             </p>
             <p>
               &copy; {new Date().getFullYear()} ZapMart: All rights reserved

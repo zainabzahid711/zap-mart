@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import laptopImage from "../../public/assets/laptopss.png";
 import phonesImages from "../../public/assets/phoness.png";
 import smartWatches from "../../public/assets/smartWatches.png";
+import Image from "next/image";
 
 const slides = [
   {
@@ -91,7 +92,7 @@ const HomeBanner = () => {
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 lg:w-3/5 relative">
-                    <img
+                    <Image
                       src={slide.image}
                       alt={slide.alt}
                       className="object-contain"
