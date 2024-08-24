@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
-
-import React, { useState } from 'react';
-import laptopImage from '../../public/assets/laptopss.png';
-import phonesImages from '../../public/assets/phoness.png';
-import smartWatches from '../../public/assets/smartWatches.png';
+import React, { useState } from "react";
+import laptopImage from "../../public/assets/laptopss.png";
+import phonesImages from "../../public/assets/phoness.png";
+import smartWatches from "../../public/assets/smartWatches.png";
 
 const slides = [
   {
@@ -64,12 +63,12 @@ const HomeBanner = () => {
             <div
               key={slide.id}
               className={`transform transition-transform duration-500 ease-in-out   ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
+                index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                display: index === currentSlide ? 'block' : 'none',
-                transition: 'all .5s',
-                transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+                display: index === currentSlide ? "block" : "none",
+                transition: "all .5s",
+                transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
               }}
             >
               <div className="bg-gradient-to-r from-black via-[#384269] to-black mb-8">
@@ -85,7 +84,7 @@ const HomeBanner = () => {
                       {slide.description}
                     </p>
                     <p>
-                      Starting @{' '}
+                      Starting @{" "}
                       <span className="text-2xl ml-5 md:text-3xl text-textColor font-thin">
                         {slide.price}
                       </span>

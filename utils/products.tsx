@@ -2,7 +2,8 @@ export const products = [
   {
     id: "64a654593e91b8e73a351e9b",
     name: "Samsung Galaxy S23",
-    description: "The latest flagship smartphone from Samsung with cutting-edge features and an advanced camera system.",
+    description:
+      "The latest flagship smartphone from Samsung with cutting-edge features and an advanced camera system.",
     price: 1199,
     brand: "Samsung",
     category: "Phone",
@@ -11,15 +12,12 @@ export const products = [
       {
         color: "Phantom Black",
         colorCode: "#000000",
-        image:
-        "https://m.media-amazon.com/images/I/61qR56Q0GrL._AC_SX679_.jpg",
-
+        image: "https://m.media-amazon.com/images/I/61qR56Q0GrL._AC_SX679_.jpg",
       },
       {
         color: "Green",
         colorCode: "#008000",
-        image:
-          "https://m.media-amazon.com/images/I/71gS0TcGZjL._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71gS0TcGZjL._AC_SX679_.jpg",
       },
     ],
     reviews: [
@@ -81,14 +79,12 @@ export const products = [
       {
         color: "Black",
         colorCode: "#000000",
-        image:
-          "https://m.media-amazon.com/images/I/61g+McQpg7L._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/61g+McQpg7L._AC_SX679_.jpg",
       },
       {
         color: "Blue",
         colorCode: " #0000FF",
-        image:
-          "https://m.media-amazon.com/images/I/713Om9vCHUL._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/713Om9vCHUL._AC_SX679_.jpg",
       },
       {
         color: "Red",
@@ -190,7 +186,7 @@ export const products = [
     name: "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
     description:
       "Industry-leading noise cancellation, 30 hours of battery life, and premium sound quality. Ideal for travel, work, and relaxation.",
-    price: 348.00,
+    price: 348.0,
     brand: "Sony",
     category: "Headphones",
     inStock: true,
@@ -198,14 +194,12 @@ export const products = [
       {
         color: "Black",
         colorCode: "#000000",
-        image:
-          "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SY679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SY679_.jpg",
       },
       {
         color: "Silver",
         colorCode: "#C0C0C0",
-        image:
-          "https://m.media-amazon.com/images/I/81upgUT4gBL._AC_SY679_.jpg",
+        image: "https://m.media-amazon.com/images/I/81upgUT4gBL._AC_SY679_.jpg",
       },
     ],
     reviews: [
@@ -228,8 +222,7 @@ export const products = [
       {
         color: "Silver",
         colorCode: "#C0C0C0",
-        image:
-          "https://m.media-amazon.com/images/I/71pY+2jTC9L._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71pY+2jTC9L._AC_SX679_.jpg",
       },
     ],
     reviews: [
@@ -244,7 +237,7 @@ export const products = [
     name: "Apple iPad Air (10.9-inch, Wi-Fi, 64GB) - Space Gray",
     description:
       "Powerful A14 Bionic chip, 10.9-inch Retina display, and support for Apple Pencil and Magic Keyboard.",
-    price: 599.00,
+    price: 599.0,
     brand: "Apple",
     category: "Tablet",
     inStock: true,
@@ -259,7 +252,7 @@ export const products = [
         color: "Sky Blue",
         colorCode: "#87CEEB",
         image:
-            "https://m.media-amazon.com/images/I/71hbD1TRGmL._AC_SL1500_.jpg"
+          "https://m.media-amazon.com/images/I/71hbD1TRGmL._AC_SL1500_.jpg",
       },
     ],
     reviews: [
@@ -272,8 +265,9 @@ export const products = [
   {
     id: "64b1234567890abcdef123456",
     name: "Apple MacBook Air (M2, 2022)",
-    description: "13.6-inch Retina display, M2 chip with 8-core CPU and 8-core GPU, 8GB RAM, 256GB SSD, macOS.",
-    price: 1199.00,
+    description:
+      "13.6-inch Retina display, M2 chip with 8-core CPU and 8-core GPU, 8GB RAM, 256GB SSD, macOS.",
+    price: 1199.0,
     brand: "Apple",
     category: "Laptop",
     inStock: true,
@@ -281,12 +275,14 @@ export const products = [
       {
         color: "Starlight",
         colorCode: "#f1c40f",
-        image: "https://m.media-amazon.com/images/I/71LOFVyz-jL._AC_SL1500_.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/71LOFVyz-jL._AC_SL1500_.jpg",
       },
       {
         color: "Space Gray",
         colorCode: "#4a4a4a",
-        image: "https://m.media-amazon.com/images/I/71zd7i8uZBL._AC_SL1500_.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/71zd7i8uZBL._AC_SL1500_.jpg",
       },
     ],
     reviews: [],
@@ -294,7 +290,8 @@ export const products = [
   {
     id: "64b234567890abcdef123457",
     name: "Samsung Galaxy Tab S8 Ultra",
-    description: "14.6-inch Super AMOLED display, Qualcomm Snapdragon 8 Gen 1, 12GB RAM, 256GB storage, Android.",
+    description:
+      "14.6-inch Super AMOLED display, Qualcomm Snapdragon 8 Gen 1, 12GB RAM, 256GB storage, Android.",
     price: 1099.99,
     brand: "Samsung",
     category: "Tablet",
@@ -303,12 +300,14 @@ export const products = [
       {
         color: "Graphite",
         colorCode: "#383838",
-        image: "https://m.media-amazon.com/images/I/71O3HtZR-1L._AC_SL1500_.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/71O3HtZR-1L._AC_SL1500_.jpg",
       },
       {
         color: "Silver",
         colorCode: "#c0c0c0",
-        image: "https://m.media-amazon.com/images/I/71EwA2nHcEL._AC_SL1500_.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/71EwA2nHcEL._AC_SL1500_.jpg",
       },
     ],
     reviews: [],

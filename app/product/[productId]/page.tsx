@@ -1,22 +1,21 @@
-import Container from "@/app/components/container"
-import {product} from '@/utils/product'
-import ProductDetails from "./productDetails"
+import Container from "@/app/components/container";
+import { product } from "@/utils/product";
+import ProductDetails from "./productDetails";
 
 interface IParams {
-    productId? : string 
+  productId?: string;
 }
 
-const Product = ({params} : {params: IParams}) =>{
-    console.log("params", params)
+const Product = ({ params }: { params: IParams }) => {
+  console.log("params", params);
 
-
-    return <div className="p-8">
-        <Container>
-            <ProductDetails product ={product} />
-        </Container>
+  return (
+    <div className="p-8">
+      <Container>
+        <ProductDetails product={product} />
+      </Container>
     </div>
-}
+  );
+};
 
-
-
-export default Product
+export default Product;
