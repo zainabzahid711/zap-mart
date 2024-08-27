@@ -94,6 +94,8 @@ const HomeBanner = () => {
                   <div className="w-full md:w-1/2 lg:w-3/5 relative">
                     <Image
                       src={slide.image}
+                      width={500}
+                      height={300}
                       alt={slide.alt}
                       className="object-contain"
                     />
