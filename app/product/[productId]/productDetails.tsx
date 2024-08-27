@@ -1,6 +1,8 @@
 "use client";
 
+import Button from "@/app/components/button";
 import SetColor from "@/app/components/products/setColor";
+import SetQuantity from "@/app/components/products/setQuantity";
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 
@@ -51,8 +53,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         return { ...prev, selectedImg: value };
       });
     },
-    [cartProduct.selectedImg],
+    [cartProduct.selectedImg]
   );
+
+  const handleQtyIncrease = useCallback(() => {
+    setCartProduct((prev) => {
+      return { ...prev, quantity: prev.quantity + 1 };
+    });
+  }, [cartProduct]);
+
+  const handleQtyDecrease = useCallback(() => {
+    if (cartProduct.quantity === 1) {
+      return;
+    }
+    setCartProduct((prev) => {
+      return { ...prev, quantity: prev.quantity - 1 };
+    });
+  }, [cartProduct]);
 
   return (
     <>
@@ -90,9 +107,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
           <Horizontal />
 
-          <div>quantity</div>
+          <SetQuantity
+            cartProduct={cartProduct}
+            handleQtyDecrease={handleQtyDecrease}
+            handleQtyIncrease={handleQtyIncrease}
+          />
           <Horizontal />
-          <div>add to cart</div>
+          <div>
+            <Button outline label="Add to cart" onClick={() => {}} />
+          </div>
         </div>
       </div>
     </>
