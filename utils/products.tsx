@@ -12,12 +12,12 @@ export const products = [
       {
         color: "Phantom Black",
         colorCode: "#000000",
-        image: "https://m.media-amazon.com/images/I/61qR56Q0GrL._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71ZXHg7Oh6L._AC_UY218_.jpg",
       },
       {
         color: "Green",
         colorCode: "#008000",
-        image: "https://m.media-amazon.com/images/I/71gS0TcGZjL._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71ZXHg7Oh6L._AC_UY218_.jpg",
       },
     ],
     reviews: [
@@ -222,7 +222,8 @@ export const products = [
       {
         color: "Silver",
         colorCode: "#C0C0C0",
-        image: "https://m.media-amazon.com/images/I/71pY+2jTC9L._AC_SX679_.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/6131ZgIFn1L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       },
     ],
     reviews: [
@@ -245,14 +246,12 @@ export const products = [
       {
         color: "Space Gray",
         colorCode: "#4B4B4B",
-        image:
-          "https://m.media-amazon.com/images/I/71VjR15d4zL._AC_SL1500_.jpg",
+        image: "https://m.media-amazon.com/images/I/61ex7atju4L._AC_SX679_.jpg",
       },
       {
         color: "Sky Blue",
         colorCode: "#87CEEB",
-        image:
-          "https://m.media-amazon.com/images/I/71hbD1TRGmL._AC_SL1500_.jpg",
+        image: "https://m.media-amazon.com/images/I/61ex7atju4L._AC_SX679_.jpg",
       },
     ],
     reviews: [
@@ -275,14 +274,12 @@ export const products = [
       {
         color: "Starlight",
         colorCode: "#f1c40f",
-        image:
-          "https://m.media-amazon.com/images/I/71LOFVyz-jL._AC_SL1500_.jpg",
+        image: "https://m.media-amazon.com/images/I/71k3fJh5EwL._AC_SX425_.jpg",
       },
       {
         color: "Space Gray",
         colorCode: "#4a4a4a",
-        image:
-          "https://m.media-amazon.com/images/I/71zd7i8uZBL._AC_SL1500_.jpg",
+        image: "https://m.media-amazon.com/images/I/71k3fJh5EwL._AC_SX425_.jpg",
       },
     ],
     reviews: [],
@@ -301,13 +298,13 @@ export const products = [
         color: "Graphite",
         colorCode: "#383838",
         image:
-          "https://m.media-amazon.com/images/I/71O3HtZR-1L._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/41GcCeBaq5L._AC_SY300_SX300_.jpg",
       },
       {
         color: "Silver",
         colorCode: "#c0c0c0",
         image:
-          "https://m.media-amazon.com/images/I/71EwA2nHcEL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/41GcCeBaq5L._AC_SY300_SX300_.jpg",
       },
     ],
     reviews: [],
