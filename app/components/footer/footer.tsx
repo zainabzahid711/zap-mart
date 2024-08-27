@@ -7,6 +7,7 @@ import {
   AiFillInstagram,
   AiFillYoutube,
 } from "react-icons/ai";
+import BottomFooter from "./bottomFooter";
 
 interface FooterSectionProps {
   title: string;
@@ -58,36 +59,37 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navblue text-white text-sm mt-16">
-      <Container>
-        <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
-          {sections.map(({ title, links }, index) => (
-            <FooterSection key={index} title={title} links={links} />
-          ))}
-          <div className="w-full md:w-1/3 md-6">
-            <h3 className="text-base font-bold mb-2">About Us</h3>
-            <p className="mb-2">
-              At our electronic store, we are dedicated to providing the latest
-              and greatest devices and accessories to our customers. With a wide
-              selection of phones, TVs, laptops, watches, and accessories.
-            </p>
-            <p>
-              &copy; {new Date().getFullYear()} ZapMart: All rights reserved
-            </p>
-          </div>
-          <FooterList>
-            <h3 className="text-base font-bold mb-2">Follow us</h3>
-            <div className="flex gap-2">
-              {socialMediaLinks.map(({ icon: Icon, href }, index) => (
-                <Link key={index} href={href}>
-                  <Icon size={24} />
-                </Link>
-              ))}
+    <>
+      <footer className="bg-gray-900 text-gray-300 text-sm mt-16">
+        <Container>
+          <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
+            {sections.map(({ title, links }, index) => (
+              <FooterSection key={index} title={title} links={links} />
+            ))}
+            <div className="w-full md:w-1/3 md-6">
+              <h3 className="text-base font-bold mb-2">About Us</h3>
+              <p className="mb-2">
+                At our electronic store, we are dedicated to providing the
+                latest and greatest devices and accessories to our customers.
+                With a wide selection of phones, TVs, laptops, watches, and
+                accessories.
+              </p>
             </div>
-          </FooterList>
-        </div>
-      </Container>
-    </footer>
+            <FooterList>
+              <h3 className="text-base font-bold mb-2">Follow us</h3>
+              <div className="flex gap-2">
+                {socialMediaLinks.map(({ icon: Icon, href }, index) => (
+                  <Link key={index} href={href}>
+                    <Icon size={24} />
+                  </Link>
+                ))}
+              </div>
+            </FooterList>
+          </div>
+        </Container>
+        <BottomFooter />
+      </footer>
+    </>
   );
 };
 
