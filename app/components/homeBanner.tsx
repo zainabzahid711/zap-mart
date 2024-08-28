@@ -85,7 +85,7 @@ const HomeBanner = () => {
                       {slide.description}
                     </p>
                     <p>
-                      Starting @{" "}
+                      Starting @
                       <span className="text-2xl ml-5 md:text-3xl text-textColor font-thin">
                         {slide.price}
                       </span>

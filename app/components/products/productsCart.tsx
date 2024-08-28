@@ -34,8 +34,7 @@ const ProductCart: React.FC<ProductCartProps> = ({ data }) => {
           </div>
           <div className="mt-4">{truncateText(data.name)}</div>
           <div>
-            {" "}
-            <Rating value={ProductRating} readOnly />{" "}
+            <Rating value={ProductRating} readOnly />
           </div>
           <div>{data.reviews.length} reviews</div>
           <div className="font-semibold"> {formatPrice(data.price)} </div>

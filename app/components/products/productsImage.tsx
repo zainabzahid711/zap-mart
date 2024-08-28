@@ -25,7 +25,7 @@ const ProductImage: React.FC<ProductImageProps> = ({
       >
         <div
           className="flex flex-col items-center justify-center
-          gap-4 cursor-pointer border h-full max-h-[500px] min-h[300px] sm:min-h-[400px]"
+          gap-4 cursor-pointer h-full max-h-[500px] min-h[300px] sm:min-h-[400px]"
         >
           {product.images.map((image: selectedImgType) => {
             return (
@@ -34,7 +34,7 @@ const ProductImage: React.FC<ProductImageProps> = ({
                 onClick={() => {
                   handleColorSelect(image);
                 }}
-                className={`relative w-[80%] rounded aspect-ratio
+                className={`relative w-[80%] h-28 rounded aspect-ratio
                      border-borderColor
                      ${
                        cartProduct.selectedImg.color === image.color
