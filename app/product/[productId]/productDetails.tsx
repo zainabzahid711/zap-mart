@@ -119,11 +119,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           />
           <Horizontal />
           <div className="max-w-[300px]">
-            <Button
-              outline
-              label="Add to cart"
-              onClick={() => handleAddProductToCart(cartProduct)}
-            />
+            <button
+              onClick={() => {
+                console.log("Adding product to cart:", cartProduct);
+                handleAddProductToCart(cartProduct);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
