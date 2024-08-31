@@ -139,11 +139,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               }}
             />
           </div>
-          {/* {cartTotalQty > 0 && (
-            <div className="text-brownColor mt-4">
-              {cartTotalQty} item{cartTotalQty > 1 ? "s" : ""} added to cart
-            </div>
-          )} */}
         </div>
       </div>
     </>
