@@ -13,6 +13,8 @@ type CartContextType = {
   cartProducts: CartProductType[];
   handleAddProductToCart: (product: CartProductType) => void;
   handleRemoveProductFromCart: (product: CartProductType) => void;
+  handleQtyIncrease: (product: CartProductType) => void;
+  handleQtyDecrease: (product: CartProductType) => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -41,7 +43,6 @@ export const CartContextProvider = (props: Props) => {
   }, []);
 
   const handleAddProductToCart = useCallback((product: CartProductType) => {
-    console.log("Adding product to cart:", product);
     setCartProducts((prev) => {
       const productExists = prev.find((item) => item.id === product.id);
       let updatedCart;
@@ -80,11 +81,52 @@ export const CartContextProvider = (props: Props) => {
     []
   );
 
+  const handleQtyIncrease = useCallback(
+    (product: CartProductType) => {
+      if (product.quantity === 99) {
+        return toast.error("Oops! Maximum reached");
+      }
+
+      const updatedCart = cartProducts.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+
+      setCartProducts(updatedCart);
+      localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
+      setCartTotalQty(
+        updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+      );
+    },
+    [cartProducts]
+  );
+  const handleQtyDecrease = useCallback(
+    (product: CartProductType) => {
+      if (product.quantity <= 1) {
+        return toast.error("Quantity cannot be less than 1");
+      }
+
+      const updatedCart = cartProducts.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+
+      setCartProducts(updatedCart);
+      localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
+      setCartTotalQty(
+        updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+      );
+    },
+    [cartProducts]
+  );
+
+  // const handleClearCart = useCallback(() => {},[cartProducts])
+
   const value = {
     cartTotalQty,
     cartProducts,
     handleAddProductToCart,
     handleRemoveProductFromCart,
+    handleQtyIncrease,
+    handleQtyDecrease,
   };
 
   return <CartContext.Provider value={value} {...props} />;

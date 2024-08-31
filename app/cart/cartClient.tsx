@@ -9,22 +9,22 @@ import ItemContent from "./itemContent";
 
 const CartClient = () => {
   const { cartProducts } = useCart();
-  // if (!cartProducts || cartProducts.length === 0) {
-  //   return (
-  //     <div className="flex flex-col items-center">
-  //       <div className="text-2xl">Your cart is empty</div>
-  //       <div>
-  //         <Link
-  //           href={"/"}
-  //           className="text-slate-500 flex items-center gap-1 mt-2"
-  //         >
-  //           <MdArrowBack />
-  //           <span>start shoping</span>
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (!cartProducts || cartProducts.length === 0) {
+    return (
+      <div className="flex flex-col items-center">
+        <div className="text-2xl">:/Your Cart is empty</div>
+        <div>
+          <Link
+            href={"/"}
+            className="text-slate-500 flex items-center gap-1 mt-2"
+          >
+            <MdArrowBack />
+            <span>start shoping</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div>
@@ -41,7 +41,7 @@ const CartClient = () => {
               <ItemContent key={item.id} item={item} />
             ))
           ) : (
-            <div>Your cart is empty</div> // Fallback if no items exist in the cart
+            <div>Your cart is empty</div>
           )}
         </div>
         <div className="border-t[1.5px] border-slate-200 py-4 flex justify-between gap-4">

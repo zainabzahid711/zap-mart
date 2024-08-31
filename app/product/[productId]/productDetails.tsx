@@ -6,7 +6,7 @@ import SetColor from "@/app/components/products/setColor";
 import SetQuantity from "@/app/components/products/setQuantity";
 import { useCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ProductDetailsProps {
   product: any;
@@ -46,6 +46,18 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     quantity: 1,
     price: product.price,
   });
+
+  // useEffect(() => {
+  //   setIsProductInCart (false)
+  //   if(cartProducts){
+  //     const existingIndex = cartProducts.findIndex(
+  //       (item) => item.id === product.id
+  //     )
+  //     if(existingIndex > -1){
+  //       setIsProductInCart(true);
+  //     }
+  //   }
+  // },[cartProducts])
 
   const ProductRating =
     product.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
@@ -123,11 +135,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               outline
               label="Add to cart"
               onClick={() => {
-                console.log("Adding product to cart:", cartProduct);
                 handleAddProductToCart(cartProduct);
               }}
             />
           </div>
+          {/* {cartTotalQty > 0 && (
+            <div className="text-brownColor mt-4">
+              {cartTotalQty} item{cartTotalQty > 1 ? "s" : ""} added to cart
+            </div>
+          )} */}
         </div>
       </div>
     </>
