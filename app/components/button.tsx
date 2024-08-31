@@ -37,6 +37,7 @@ const Button: React.FC<BtnProps> = ({
             ${outline ? "bg-brownColor " : ""} ${outline ? "text-gray-300" : "text-black"} 
             ${small ? "text-sm font-light" : "text-md font-semibold"} ${small ? "py-1 px-2 border-[1px]" : "py-3 px-4 border-2"} 
             ${custom ? custom : ""} `}
+        onClick={onClick}
       >
         {Icon && <Icon size={24} />}
         {label}
