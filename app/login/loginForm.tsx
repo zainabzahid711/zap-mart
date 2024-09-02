@@ -8,7 +8,7 @@ import Button from "../components/button";
 import Link from "next/link";
 import { AiOutlineGoogle } from "react-icons/ai";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -19,7 +19,6 @@ const RegisterForm = () => {
   });
 
   const fields = [
-    { id: "name", label: "Name", type: "text" },
     { id: "email", label: "Email", type: "email" },
     { id: "password", label: "Password", type: "password" },
   ];
@@ -30,7 +29,7 @@ const RegisterForm = () => {
   };
   return (
     <>
-      <Heading title="sign up" />
+      <Heading title="sign In To zapMart" />
       <hr className="bg-slate-50 w-full h-px" />
       {fields.map((item) => (
         <Input
@@ -46,24 +45,24 @@ const RegisterForm = () => {
       ))}
       <Button
         outline
-        label={isLoading ? "loading" : "Sign up"}
+        label={isLoading ? "loading" : "Sign In"}
         onClick={handleSubmit(onSubmit)}
       />
       <p className=" text-sm">
-        Already have an account
-        <Link className="underline text-borderColor ml-3" href={"/login"}>
-          Login
+        Do not have an account
+        <Link className="underline text-borderColor ml-3" href={"/register"}>
+          Register
         </Link>
       </p>
       <hr className="bg-slate-50 w-full h-px" />
 
       <Button
         outline
-        label="Sign In with Google"
+        label="Continue with Google"
         icon={AiOutlineGoogle}
         onClick={() => {}}
       />
     </>
   );
 };
-export default RegisterForm;
+export default LoginForm;

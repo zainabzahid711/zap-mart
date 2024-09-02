@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.4.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.7",
+    "@prisma/client": "^5.19.0",
     "@types/node": "22.4.1",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
-    "prettier-eslint": "^16.1.2"
+    "prettier-eslint": "^16.1.2",
+    "prisma": "^5.19.0"
   }
 }
