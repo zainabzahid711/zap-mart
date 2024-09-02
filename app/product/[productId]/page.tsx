@@ -12,6 +12,19 @@ const Product = ({ params }: { params: IParams }) => {
 
   const product = products.find((item) => item.id === params.productId);
 
+  if (!product) {
+    return (
+      <Container>
+        <div className="p-8">
+          <h1 className="text-2xl font-bold">Product not found</h1>
+          <p className="text-gray-500">
+            Sorry, the product you're looking for doesn't exist.
+          </p>
+        </div>
+      </Container>
+    );
+  }
+
   return (
     <div className="p-8">
       <Container>

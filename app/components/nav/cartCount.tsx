@@ -12,7 +12,7 @@ const CartCount = () => {
     <>
       <div
         className="relative cursor-pointer"
-        onClick={() => router.push("./cart")}
+        onClick={() => router.push("/cart")}
       >
         <div className="text-3xl ">
           <CiShoppingCart />

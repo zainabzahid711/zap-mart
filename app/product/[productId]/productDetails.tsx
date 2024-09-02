@@ -37,7 +37,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const { handleAddProductToCart, cartProducts } = useCart();
 
   const [cartProduct, setCartProduct] = useState<CartProductType>({
-    id: product.id,
+    id: product.id || "",
     name: product.name,
     description: product.description,
     category: product.category,
@@ -73,7 +73,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     setCartProduct((prev) => {
       return { ...prev, quantity: prev.quantity + 1 };
     });
-  }, [cartProduct]);
+  }, []);
 
   const handleQtyDecrease = useCallback(() => {
     if (cartProduct.quantity === 1) {
