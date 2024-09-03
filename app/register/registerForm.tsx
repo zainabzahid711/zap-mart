@@ -7,6 +7,10 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "../components/button";
 import Link from "next/link";
 import { AiOutlineGoogle } from "react-icons/ai";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +22,8 @@ const RegisterForm = () => {
     defaultValues: { name: "", email: "", password: "" },
   });
 
+  const router = useRouter();
+
   const fields = [
     { id: "name", label: "Name", type: "text" },
     { id: "email", label: "Email", type: "email" },
@@ -27,6 +33,30 @@ const RegisterForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     console.log(data);
+
+    axios.post("/api/register", data).then(() => {
+      toast.success("account created");
+    });
+    signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    })
+      .then((callback) => {
+        if (callback?.ok) {
+          router.push("/cart");
+          router.refresh();
+          toast.success("Logged In");
+        }
+
+        if (callback?.error) {
+          toast.error(callback.error);
+        }
+      })
+      .catch(() => toast.error("something went wrong"))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
   return (
     <>
