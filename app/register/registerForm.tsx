@@ -30,34 +30,49 @@ const RegisterForm = () => {
     { id: "password", label: "Password", type: "password" },
   ];
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
     console.log(data);
 
-    axios.post("/api/register", data).then(() => {
-      toast.success("account created");
-    });
-    signIn("credentials", {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    })
-      .then((callback) => {
-        if (callback?.ok) {
+    try {
+      const registerResponse = await axios.post("/api/register", data);
+      if (registerResponse.status === 201 || registerResponse.status === 200) {
+        toast.success("Account created successfully");
+
+        const signInResponse = await signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          redirect: false,
+        });
+
+        if (signInResponse?.ok) {
           router.push("/cart");
           router.refresh();
-          toast.success("Logged In");
+          toast.success("Logged in successfully");
+        } else {
+          toast.error(signInResponse?.error || "Login failed");
         }
-
-        if (callback?.error) {
-          toast.error(callback.error);
-        }
-      })
-      .catch(() => toast.error("something went wrong"))
-      .finally(() => {
-        setIsLoading(false);
-      });
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    } catch (error: any) {
+      // Explicitly type the error
+      console.error("Error during registration or login:", error);
+      if (error.response) {
+        // Handle known errors (e.g., validation issues, user already exists)
+        toast.error(
+          error.response.data?.message ||
+            "An error occurred during registration"
+        );
+      } else {
+        // Handle generic or network errors
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <>
       <Heading title="sign up" />
