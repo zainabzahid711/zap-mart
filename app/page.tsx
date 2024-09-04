@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "./components/container";
 // "use-client"
+export const revalidate = 0;
 
 import HomeBanner from "./components/homeBanner";
 import { products } from "@/utils/products";

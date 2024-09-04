@@ -62,7 +62,7 @@ const RegisterForm = () => {
         // Handle known errors (e.g., validation issues, user already exists)
         toast.error(
           error.response.data?.message ||
-            "An error occurred during registration",
+            "An error occurred during registration"
         );
       } else {
         // Handle generic or network errors
