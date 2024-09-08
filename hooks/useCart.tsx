@@ -49,8 +49,8 @@ export const CartContextProvider = (props: Props) => {
           setCartTotalQty(
             parsedCart.reduce(
               (acc: number, item: CartProductType) => acc + item.quantity,
-              0
-            )
+              0,
+            ),
           );
         } else {
           console.error("Invalid cart data found in local storage.");
@@ -74,7 +74,7 @@ export const CartContextProvider = (props: Props) => {
 
             return acc;
           },
-          { total: 0, qty: 0 }
+          { total: 0, qty: 0 },
         );
 
         setCartTotalQty(qty);
@@ -93,7 +93,7 @@ export const CartContextProvider = (props: Props) => {
         updatedCart = prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + product.quantity }
-            : item
+            : item,
         );
       } else {
         updatedCart = [...prev, product];
@@ -102,7 +102,7 @@ export const CartContextProvider = (props: Props) => {
       toast.success("Product added to cart");
       localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
       setCartTotalQty(
-        updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+        updatedCart.reduce((acc, item) => acc + item.quantity, 0),
       );
       return updatedCart;
     });
@@ -115,12 +115,12 @@ export const CartContextProvider = (props: Props) => {
         toast.success("Product removed from cart");
         localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
         setCartTotalQty(
-          updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+          updatedCart.reduce((acc, item) => acc + item.quantity, 0),
         );
         return updatedCart;
       });
     },
-    []
+    [],
   );
 
   const handleQtyIncrease = useCallback(
@@ -130,16 +130,18 @@ export const CartContextProvider = (props: Props) => {
       }
 
       const updatedCart = cartProducts.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
       );
 
       setCartProducts(updatedCart);
       localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
       setCartTotalQty(
-        updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+        updatedCart.reduce((acc, item) => acc + item.quantity, 0),
       );
     },
-    [cartProducts]
+    [cartProducts],
   );
   const handleQtyDecrease = useCallback(
     (product: CartProductType) => {
@@ -148,16 +150,18 @@ export const CartContextProvider = (props: Props) => {
       }
 
       const updatedCart = cartProducts.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === product.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
       );
 
       setCartProducts(updatedCart);
       localStorage.setItem("zapMartItems", JSON.stringify(updatedCart));
       setCartTotalQty(
-        updatedCart.reduce((acc, item) => acc + item.quantity, 0)
+        updatedCart.reduce((acc, item) => acc + item.quantity, 0),
       );
     },
-    [cartProducts]
+    [cartProducts],
   );
 
   const handleClearCart = useCallback(() => {
