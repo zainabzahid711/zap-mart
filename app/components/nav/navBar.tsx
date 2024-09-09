@@ -3,10 +3,28 @@ import Container from "../container";
 import { Redressed } from "next/font/google";
 import CartCount from "./cartCount";
 import UserMenu from "./userMenu";
+import { getCurrentUser } from "@/actions/getCurrentUser";
+import { SafeUser } from "@/types";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
-const NavBar = () => {
+const NavBar = async () => {
+  const userResponse = await getCurrentUser();
+
+  //Convert string dates to Date objects
+  const currentUser: SafeUser | null = userResponse
+    ? {
+        ...userResponse,
+        createdAt: new Date(userResponse.createdAt),
+        updatedAt: new Date(userResponse.updatedAt),
+        emailVerified: userResponse.emailVerified
+          ? new Date(userResponse.emailVerified)
+          : null,
+      }
+    : null;
+
+  console.log("user<<<<", currentUser);
+
   return (
     <>
       <div className="sticky top-0 w-full bg-navblue z-30 shadow-sm">
@@ -22,7 +40,13 @@ const NavBar = () => {
               <div className="hidden md:block">Search</div>
               <div className="flex items-center gap-8 md:gap-12 ">
                 <CartCount />
-                <UserMenu />
+                {currentUser ? (
+                  <UserMenu currentUser={currentUser} />
+                ) : (
+                  <Link href="/login" className="text-sm font-medium">
+                    Sign In
+                  </Link>
+                )}
               </div>
             </div>
           </Container>
