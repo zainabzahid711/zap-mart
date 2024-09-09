@@ -8,6 +8,7 @@ import MenuItems from "./menuItems";
 import { signOut } from "next-auth/react";
 import BackDrop from "./backdrop";
 import { SafeUser } from "@/types";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   currentUser: SafeUser | null;
@@ -23,10 +24,24 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
+
+  const handleSignOut = () => {
+    signOut({
+      redirect: false,
+    })
+      .then(() => {
+        console.log("Sign out successful");
+        router.push("/login");
+      })
+      .catch((error) => {
+        console.error("Sign out error:", error);
+      });
+  };
 
   return (
     <>
@@ -55,8 +70,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <hr />
                 <MenuItems
                   onClick={() => {
+                    handleSignOut();
                     toggleOpen();
-                    signOut;
                   }}
                 >
                   Sign Out
@@ -70,18 +85,16 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <Link href="/login">
                   <MenuItems onClick={toggleOpen}>Login</MenuItems>
                 </Link>
-                <MenuItems
+                {/* <MenuItems
                   onClick={() => {
                     toggleOpen();
-                    signOut;
+                    signOut();
                   }}
                 >
                   Sign Out
-                </MenuItems>
+                </MenuItems> */}
               </div>
             )}
-
-            <div></div>
           </div>
         )}
       </div>

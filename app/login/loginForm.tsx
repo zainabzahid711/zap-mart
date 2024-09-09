@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../components/heading";
 import Input from "../components/inputs/input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -10,8 +10,13 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { SafeUser } from "@/types";
 
-const LoginForm = () => {
+interface LoginFromProps {
+  currentUser: SafeUser | null;
+}
+
+const LoginForm: React.FC<LoginFromProps> = ({ currentUser }) => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -27,6 +32,13 @@ const LoginForm = () => {
   ];
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (currentUser) {
+      router.push("/cart");
+      router.refresh();
+    }
+  }, [currentUser, router]);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
@@ -45,6 +57,15 @@ const LoginForm = () => {
       }
     });
   };
+
+  const handleGoogleSignIn = () => {
+    signIn("google", { callbackUrl: "/cart" });
+  };
+
+  if (currentUser) {
+    return <p className="text-center">Logged In. Redirecting...</p>;
+  }
+
   return (
     <>
       <Heading title="sign In To zapMart" />
@@ -75,10 +96,10 @@ const LoginForm = () => {
       <hr className="bg-slate-50 w-full h-px" />
 
       <Button
-        outline
+        transparent
         label="Continue with Google"
         icon={AiOutlineGoogle}
-        onClick={() => {}}
+        onClick={handleGoogleSignIn}
       />
     </>
   );

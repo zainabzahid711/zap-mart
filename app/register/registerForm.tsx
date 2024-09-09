@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "../components/heading";
 import Input from "../components/inputs/input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -11,8 +11,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { SafeUser } from "@/types";
 
-const RegisterForm = () => {
+interface RegisterFromProps {
+  currentUser: SafeUser | null;
+}
+
+const RegisterForm: React.FC<RegisterFromProps> = ({ currentUser }) => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -29,6 +34,13 @@ const RegisterForm = () => {
     { id: "email", label: "Email", type: "email" },
     { id: "password", label: "Password", type: "password" },
   ];
+
+  useEffect(() => {
+    if (currentUser) {
+      router.push("/cart");
+      router.refresh();
+    }
+  }, [currentUser, router]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
@@ -73,6 +85,13 @@ const RegisterForm = () => {
     }
   };
 
+  const handleGoogleSignIn = () => {
+    signIn("google", { callbackUrl: "/cart" });
+  };
+
+  if (currentUser) {
+    return <p className="text-center">Logged In. Redirecting...</p>;
+  }
   return (
     <>
       <Heading title="sign up" />
@@ -106,7 +125,9 @@ const RegisterForm = () => {
         outline
         label="Sign In with Google"
         icon={AiOutlineGoogle}
-        onClick={() => {}}
+        onClick={() => {
+          handleGoogleSignIn();
+        }}
       />
     </>
   );
